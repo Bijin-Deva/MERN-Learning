@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Array</title>
+    </head>
+    <body>
+        <script>
+
+        let cities = ["HYD","Banglore","Madras","Bombay","Kolkota"];
+        document.write("Array Values:  "+cities+"<br/>");
+        document.write("First city:  "+cities[0]+"<br/>");
+        cities.push("Delhi");
+        document.writeln("Updated Array:  "+cities);
+        cities.pop();
+        document.writeln("<br/>"+"After Pop:  "+cities+"<br/>");
+        document.write(cities.pop());
+        cities.splice(2,1);
+        document.write("<br/>"+"After Slice:  "+cities)
+        
+        let index = cities.indexOf("HYD");
+        if(index !== -1){
+
+            cities.splice(index,1);
+        }
+        document.write("<br/>"+"After deleteion using value:  "+cities+"<br/><br/>");
+
+        let cities1 = ["HYD","Banglore","Madras","Bombay","Kolkota"];
+        let population = [20,29,30,44,34];
+
+        for(let i=0;i<cities1.length;i++)
+        {
+            document.write("Population of "+ cities1[i]+"(in millions): "+population[i]+"<br/>");
+        }
+
+        let crowded = population.filter(function(popu){
+            return popu>25;
+        });
+
+        document.write("Crowded cities population :"+crowded);
+        
+        let new_sensus = population.map(function(popu){
+            return popu+5;
+        });
+
+        document.write("<br/><br/>"+"Updated Population: "+new_sensus);
+
+        let profile = {
+            name:"Deva",
+            age:22,
+            course:"AI&ML",
+            address:{
+                city:"Kadapa",
+                town:"Rayachoti",
+                pin:123456
+            }
+        };
+
+        document.write("<br/>"+"Student Setails:"+"<br/>"+"Name: "+profile.name+"<h4>Address:</h4>"+"<br/>"+profile.address.city);
+        </script>
+    </body>
+
+</html>

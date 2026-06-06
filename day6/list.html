@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Day 6</title>
+        <style>
+            .dark{
+                background-color: black;
+                color: white;
+                padding:20px;
+            }
+        </style>
+    </head>
+    <body id="page">
+        <button onclick="addItem()">Add Item</button>
+        <ul id="list"></ul>
+        <script>
+            var n=1;
+            function addItem(){
+                var li = document.createElement("li");
+                li.textContent = "Item" + n;
+                document.getElementById("list").appendChild(li);
+                n++;
+            }
+        </script>
+
+
+
+
+        <!-- remove Element/Items -->
+
+        <p id="removeMe">Remove me by Button Click</p>
+        <button onclick="removeItem()" id="removebtn">Remove</button>
+        <script>
+            function removeItem(){
+                document.getElementById("removeMe").remove();
+                document.getElementById("removebtn").remove();
+            }
+        </script>
+
+        <br/><br/>
+        <!-- Show or Hide-->
+         Enter Password: <br/>
+         <input type="password" id="pass" placeholder="Enter password">
+         <button onclick="handleVisibility()">Show/Hide</button>
+         <script>
+            function handleVisibility(){
+                var p = document.getElementById("pass");
+                if(p.type === "password" ){
+                    p.type="text";
+                }else{
+                    p.type="password";
+                }
+            }
+         </script>
+
+
+         <h2 id="clock"></h2>
+         <script>
+            function updateClock(){
+                var now = new Date();
+                document.getElementById("clock").textContent = now.toLocaleTimeString();
+            }
+            updateClock();
+            setInterval(updateClock,1000);
+         </script>
+
+
+         <input placeholder="Enter name" id="username">
+         <button onclick="save()">Save</button>
+         <p id="msg"></p>
+         <script>
+            function save(){
+                localStorage.setItem("username",document.getElementById("username").value);
+                document.getElementById("msg").textContent="Saved...!!"
+            }
+         </script>
+
+         <h3 id="welcome"></h3>
+         <button onclick="greet()">Greet</button>
+         <script>
+            function greet(){
+            var username = localStorage.getItem("username");
+            if(username){
+                document.getElementById("welcome").textContent = "Welcome    " + username;
+            }
+        }
+         </script>
+        <br/><br/>
+         <button onclick="toggle()">Toggle Theme</button>
+         <script>
+            if(localStorage.getItem("theme") === "dark"){
+                document.getElementById("page").classList.add("dark");
+            }
+            function toggle(){
+                var p = document.getElementById("page");
+                p.classList.toggle("dark");
+                localStorage.setItem("theme",p.classList.contains("dark") ? "dark" : "light");
+            }
+         </script>
+            <br/><br/>
+        <input type="email" id="email" placeholder="Email">
+        <script>
+            var email=document.getElementById("email");
+            email.value = localStorage.getItem("email") || "";
+            email.addEventListener("input",function(){
+                localStorage.setItem("email",email.value);
+            });
+        </script>
+        <br/><br/>
+        <p id="visits"></p>
+        <script>
+            var v = localStorage.getItem("visits") || 0;
+            v++;
+            localStorage.setItem("visits",v);
+            document.getElementById("visits").innerHTML = "<b><i>Total Visits: </i></b>" + v;
+        </script>
+        <br/><br/>
+        <select id="lang">
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+        </select>        
+        <p id="msg"></p>
+        <script>
+            var sel = document.getElementById("lang");
+            sel.value = localStorage.getItem("lang") || "English";
+            document.getElementById("msg").textContent = "Selected :  "+sel.value;
+            sel.addEventListener("change",function(){
+                localStorage.setItem("lang",sel.value);
+                location.reload();
+            })
+        </script>
+
+    
+        <br/><br/>
+        <button onclick="big()">A+</button>
+        <button onclick="small()">A-</button>
+        <p id="text">Some lines of text to observe the zoom in and zoom out things</p>
+        <script>
+            var size = localStorage.getItem("size") || 16;
+            document.getElementById("text").style.fontSize = size + "px";
+            function big(){
+                size++;
+                save();
+            }
+            function small(){
+                size--;
+                save();
+            }
+
+            function save(){
+                localStorage.setItem("size",size);
+                document.getElementById("text").style.fontSize = size +"px";
+            }
+
+
+        </script>
+
+
+
+        <br/><br/>
+        <textarea id="txtarea" placeholder="write here...."></textarea>
+        <script>
+            var data = document.getElementById("txtarea");
+            data.value = localStorage.getItem("txtarea") || "";
+            data.addEventListener("input",function(){
+                localStorage.setItem("txtarea",txtarea.value);
+            })
+        </script>
+    </body>
+</html>

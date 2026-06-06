@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DOM</title>
+        <style>
+            .darkmode{
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body id="theme">
+        <!-- <p id="demo">Hello World!</p>
+        <button onclick="changeText()">Change Text</button>
+        <script>
+            function changeText(){
+                document.getElementById("demo").textContent = " Welcome(text changed)"
+            }
+        </script>
+
+        <p class="demo1">Hello World!</p>
+        <p class="demo1">Welcome to MERN</p>
+        <button onclick="makeBold()">Change Text Style</button>
+        <script>
+            function makeBold(){
+                var items = document.getElementsByClassName("demo1");
+                for(var i=0;i<items.length;i++)
+                {
+                    items[i].style.fontWeight="bold";
+                }
+                for(var i=0;i<items.length;i++)
+                {
+                    items[i].style.backgroundColor="lightblue";
+                }
+            }
+        </script>
+        <p class="demo2">Hello World!</p>
+        <p id="demo3">Name:Kiran</p>
+        <button onclick="removeText()">Change Text</button>
+        <script>
+            function removeText(){
+                document.getElementById("demo3").textContent = " "
+            }
+        </script>
+
+        <p class="demo4">Hello World!</p>
+        <p class="demo4">Hello World!</p>
+        <p class="demo4">Hello World!</p>
+        <p class="demo4">Hello World!</p>
+        <button onclick="selectText()">Change Text</button>
+        <button onclick="changeBackground()">changeBackground</button>
+        <script>
+            function selectText(){
+                document.querySelector(".demo4").style.fontWeight="bold";
+            }
+            function changeBackground(){
+                
+                var all = document.querySelectorAll(".demo4");
+                all.forEach(function(x){
+                    x.style.backgroundColor="lightgreen"
+                });
+            }
+        </script>
+        <h2 id="demo5">Hello World!</h2>
+        <button onclick="styleIt()">Style IT</button>
+        <script>
+            function styleIt(){
+                let v = document.getElementById("demo5");
+                v.style.color="blue";
+                v.style.backgroundColor="lightgrey";
+                v.style.fontStyle="italic";
+            }
+        </script>
+        <br/><br/><br/>
+        <button onclick="changeTheme()">Change Theme</button>
+        <script>
+            function changeTheme(){
+            document.getElementById("theme").classList.toggle("darkmode");
+            }
+        </script>
+        <br/><br/><br/>
+        <a id="link" href="https://gprec.ac.in">GPREC</a><br/><br/>
+        <button onclick="changeLink()">Click to change link</button>
+        <script>
+            function changeLink(){
+                let a = document.getElementById("link");
+                alert("old herf: "+a.getAttribute("href"));
+                a.setAttribute("href","https://google.com");
+                a.textContent="GOOGLE";
+            }
+        </script><br/><br/> -->
+        <button id="scroll" style="background-color:yellowgreen">Interact with  Me!!</button>
+        <p id="para">Paragraph 1</p>
+        <script>
+            document.getElementById("scroll").addEventListener("click", function(){
+                document.getElementById("para").textContent="Button Clicked";
+            })
+            document.getElementById("scroll").addEventListener("dblclick", function(){
+                document.getElementById("para").textContent="Button Double Clicked";
+            })
+            document.getElementById("scroll").addEventListener("mouseover", function(){
+                document.getElementById("para").textContent="mouse hovering";
+            })
+            document.getElementById("scroll").addEventListener("mouseout", function(){
+                document.getElementById("para").textContent="Paragraph 1";
+            })
+
+        </script>
+
+        <input type="text" id="username" placeholder="Enter something here...">
+        <p id="out"></p>
+        <script>
+            document.getElementById("username").addEventListener("input", function(){
+                document.getElementById("out").textContent = "User typing... "+this.value;
+            })
+        </script>
+
+        <label> Change BG Colour</label>
+        <select id="bgcolour">
+            <option value="">--Select one--</option>
+            <option value="lightgreen">lightgreen</option>
+            <option value="lightgrey">Light Grey</option>
+            <option value="lightblue">Light Blue</option>
+            <option value="orange">Orange</option>
+        </select>  
+        <script>
+            document.getElementById("bgcolour").addEventListener("change",function(){
+                document.getElementById("theme").style.backgroundColor=this.value;
+            });
+        </script>
+
+
+    </body>
+</html>
