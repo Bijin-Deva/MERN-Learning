@@ -66,18 +66,20 @@
                 .then((users1) => {
                     let filteredUsers = users1.filter((user1)=>
                         user1.name.toLowerCase().includes(keyword.toLowerCase())
-                );
-                let html = "<h2>Search Results</h2>";
-                if(filteredUsers.length === 0){
-                    html += "No Users Found";
-                }else{
-                    filteredUsers.forEach((user1) =>{
-                        html+= user1.name + "("+user1.email+")"+"<hr/>";
-                    });
-                }
-
-                document.getElementById("output1").innerHTML = html;
-                })
+                    );
+                    let html = "<h2>Search Results</h2>";
+                    if(filteredUsers.length === 0)
+                    {
+                        html += "No Users Found";
+                    }
+                    else
+                    {
+                        filteredUsers.forEach((user1) =>{
+                            html+= user1.name + "("+user1.email+")"+"<hr/>";
+                        });
+                    }
+                    document.getElementById("output1").innerHTML = html;
+                    })
                 .catch(error => {console.log(error)})
             }
         </script>

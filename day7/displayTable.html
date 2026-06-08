@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fetch Users into table</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                padding:20px;
+                background: rgba(228, 238, 241, 0);
+            }
+            h2{
+                color:red;
+
+            }
+            button{
+                padding:15px 30px;
+                background-color: rgb(219, 138, 32);
+                color:white;
+                border:none;
+                cursor:pointer;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            button:hover{
+                background-color: rgb(241, 226, 12);
+                color:blue;
+            }
+            table{
+                width:100%;
+                border-collapse: collapse;
+                background: white;
+            }
+            th,td{
+                border:1px dashed black;
+                padding:10px;
+                text-align: center;
+                vertical-align: center;
+                font-size: 14px;    
+            }
+            th{
+                background-color: black;
+                color:white;
+            }
+
+            tr:nth-child(even){
+                background-color: rgb(48, 112, 114);
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Fetch users Example</h2>
+        <button onclick="loadUsers()">Load Users</button>
+        <div id="output"></div>
+        <script>
+            function loadUsers()
+            {
+                fetch("https://jsonplaceholder.typicode.com/users")
+                .then(response => response.json())
+                .then(users => {
+                    let result = "<h2>Users List</h2>";
+                    result += `
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Website</th>
+                                <th>Address</th>
+                                <th>GEO Location</th>
+                                <th>Company</th>
+                            </tr>
+                    `;
+                    users.forEach(function(user){
+                        result += `
+                            <tr>
+                                <td>${user.id}</td>
+                                <td>${user.name}</td>
+                                <td>${user.username}</td>
+                                <td>${user.email}</td>
+                                <td>${user.phone}</td>
+                                <td>${user.website}</td>
+                                <td>
+                                    <strong>Street: </strong>${user.address.street}<br/>
+                                    <strong>Suite: </strong>${user.address.suite}<br/>
+                                    <strong>City: </strong>${user.address.city}<br/>
+                                    <strong>ZipCode: </strong>${user.address.zipcode}    
+                                </td>
+                                <td>
+                                    <strong>Latitude: </strong>${user.address.geo.lat}<br/>
+                                    <strong>Longitude: </strong>${user.address.geo.lng}
+                                </td>
+                                <td>${user.company.name}</td>
+                            </tr>
+                        `;
+                    });
+                    result += "</table";
+                    document.getElementById("output").innerHTML=result;
+                })
+                .catch(error=>{
+                    document.getElementById("output").innerHTML = "<p>Something went wrong</p>";
+                    console.log(error);
+                })
+            }
+        </script>
+    </body>
+</html>
