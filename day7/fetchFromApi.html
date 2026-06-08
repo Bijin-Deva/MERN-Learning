@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Loader</title>
+    </head>
+    <body>
+        <h1>Fetch Users Example</h1>
+        <button onclick="fetchApi()">Load Users</button>
+        <div id="output"></div>
+
+        <script>
+            function fetchApi(){
+                fetch("https://jsonplaceholder.typicode.com/users")
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(users){
+                    let result = "<h3>Users List</h3>";
+                    users.forEach(function(user){
+                        result += user.name + "<br/>"+ user.username+"<hr/>";
+                    })
+                    document.getElementById("output").innerHTML = result;
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+            }
+        </script>
+    </body>
+</html>

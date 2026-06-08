@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task1</title>
+    </head>
+    <body>
+        <h2>JSON Practice</h2>
+        <script>
+            let data = `[
+                {
+                    "id":1,
+                    "task":"Learn JSON",
+                    "completed":true
+                },
+                {
+                    "id":2,
+                    "task":"Practice JavaScript",
+                    "completed": false
+                }
+            ]`;
+
+            let jsondata = JSON.parse(data);
+            for(let i=0;i<jsondata.length;i++)
+        {
+            document.write("Id: "+jsondata[i].id+"<br/>"+"Task: "+jsondata[i].task+"<br/>"+"Completed: "+jsondata[i].completed+"<hr/>");
+        }
+        </script>
+
+        <script>
+            let data1 = `{
+                "cart_id":101,
+                "user_id":1,
+                "items":[
+                    {
+                        "product_id":1,
+                        "product_name":"Laptop",
+                        "qty":1,
+                        "price":45000
+                    },
+                    {
+                        "product_id":2,
+                        "product_name":"Mouse",
+                        "qty":1,
+                        "price":4500
+                    }
+                ]
+            }`;
+
+            let jsondata1 = JSON.parse(data1);
+            document.write("User ID: "+jsondata1.user_id+"<br/>"+"Cart ID: "+jsondata1.cart_id+"<br/>");
+            for(let i=0;i<jsondata1.items.length;i++)
+            {
+                document.write("Product Name: "+jsondata1.items[i].product_name+"<br/>"+"Id: "+jsondata1.items[i].product_id+
+                "<br/>"+"Quantity: "+jsondata1.items[i].qty+"<br/>"+"Price: "+jsondata1.items[i].price+"<hr/>");
+            }
+        </script>
+    </body>
+</html>
