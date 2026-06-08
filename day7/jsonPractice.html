@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            JSON
+        </title>
+    </head>
+    <body>
+        <h2>Simple JSON</h2>
+        <h3>Output</h3>
+        <script>
+            let jsonText = `{
+                "name" : "Ravi",
+                "age":20,
+                "city":"Hyderabad"
+            }`;
+            let data = JSON.parse(jsonText);
+            document.write("name :"+data.name+"<br/>"+"Age: "+data.age+"<br/>"+"City: "+data.city);
+        </script>
+
+
+
+        <script>
+            let jsonTextArr = `["HTML","CSS","JS","JSON"]`;
+            let dataArr = JSON.parse(jsonTextArr);
+            document.write("<h3>Courses</h3>"); 
+            for(let i=0;i<dataArr.length;i++)
+            {
+                document.write((i+1)+"."+dataArr[i]+"<br/>");
+            }
+        </script>
+
+        <br/>
+
+        <script>
+            let jsonArrObj = `[
+                {
+                    "id":1,
+                    "name":"Kiran",
+                    "marks":90
+                },
+                {
+                    "id":2,
+                    "name":"Hari",
+                    "marks":95
+                }
+            ]`;
+
+            let dataArrObj = JSON.parse(jsonArrObj);
+            for(let i=0;i<dataArrObj.length;i++)
+            {
+                document.write("ID: "+dataArrObj[i].id+"<br/>" + "Name: "+dataArrObj[i].name+"<br/>"+"Marks:"+dataArrObj[i].marks+"<hr/>");
+            }
+        </script>
+
+
+        <script>
+            let jsonTextNested = `{
+                "name":"Bijin",
+                "age":21,
+                "address":{
+                    "door":"4/122",
+                    "street":"Main Road",
+                    "city":"Kurnool",
+                    "state":"AP"
+                }
+            }`;
+
+            let dataNested = JSON.parse(jsonTextNested);
+            document.write("Name: "+dataNested.name+"<br/>"+"Age: "+dataNested.age + "<br/>" + "Address: <br/>"+"Door No.: "+dataNested.address.door+"<br/>"+"Street: "+
+                dataNested.address.street+"<br/>"+"City: "+dataNested.address.city+"<br/>"+"State: "+dataNested.address.state
+            );
+        </script>
+
+
+<br/>
+<script>
+    let jsonText1 = `{
+        "college_name":"G Pulla Reddy Engineering College",
+        "students":[
+                {
+                    "id":1,
+                    "name":"Kiran",
+                    "marks":90
+                },
+                {
+                    "id":2,
+                    "name":"Hari",
+                    "marks":95
+                }
+        ]
+    }`;
+    let jsondata = JSON.parse(jsonText1);
+    document.write("College Name: "+ jsondata.college_name+"<br/>");
+    for(let i=0;i<jsondata.students.length;i++)
+    {
+        document.write("ID: "+jsondata.students[i].id+"<br/>");
+        document.write("Name: "+jsondata.students[i].name+"<hr/>");
+    }
+</script>
+    </body>
+</html>
