@@ -26,5 +26,60 @@
                 })
             }
         </script>
+
+
+
+        <h1>Fetch Products Example</h1>
+        <button onclick="fetchApiProducts()">Load Product Details</button>
+        <div id="outputProducts"></div>
+
+        <script>
+            function fetchApiProducts(){
+                fetch("https://fakestoreapi.com/products")
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(products){
+                    let result = "<h3>Users List</h3>";
+                    products.slice(0,5).forEach(function(product){
+                        result +="<b>Title: </b>" + "<b>"+product.title+"</b>" + "<br/>"+ "<b>Description: </b>"+ product.description+ "<br/>"+"<b>Price: </b>"+ product.price+ "<br/>" +"<b>Image: </b>"+product.image+"<hr/>";
+                    })
+                    document.getElementById("outputProducts").innerHTML = result;
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+            }
+        </script>
+
+
+
+        <h1>Search User By Name</h1>
+        <input type="text" id="searchbox" placeholder="Enter User Name">
+        <button onclick="searchUser()">search</button>
+        <div id="output1"></div>
+        <script>
+            function searchUser(){
+                let keyword = document.getElementById("searchbox").value;
+                fetch("https://jsonplaceholder.typicode.com/users")
+                .then(response => response.json())
+                .then((users1) => {
+                    let filteredUsers = users1.filter((user1)=>
+                        user1.name.toLowerCase().includes(keyword.toLowerCase())
+                );
+                let html = "<h2>Search Results</h2>";
+                if(filteredUsers.length === 0){
+                    html += "No Users Found";
+                }else{
+                    filteredUsers.forEach((user1) =>{
+                        html+= user1.name + "("+user1.email+")"+"<hr/>";
+                    });
+                }
+
+                document.getElementById("output1").innerHTML = html;
+                })
+                .catch(error => {console.log(error)})
+            }
+        </script>
     </body>
 </html>
