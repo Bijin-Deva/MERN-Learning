@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather App</title>
+        <style>
+            body{
+                font-family: cursive;
+                background-color: beige;
+                text-align: center;
+                padding: 40px;
+            }
+            .weather-box{
+                align-items: center;
+                background-color: bisque;
+                width: 450px;
+                height: 150px;
+                margin:auto;
+                border-radius: 12px;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            }
+            input{
+                width:80%;
+                padding-top: 10px;
+                padding:10px;
+                margin-top: 20px;
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+            button{
+                padding: 10px 20px;
+                background-color: blue;
+                color: white;
+                border:none;
+                cursor: pointer;
+                border-radius: 5px;
+                padding-bottom: 5px;
+            }
+            button:hover{
+                background-color: rgb(189, 209, 170);
+            }
+            #result{
+                margin-top: 10px;
+            }
+            .errorMsg{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>API based Weather App</h2>
+        <div class="weather-box">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+            <div id="result"></div>
+        </div>
+
+        <script>
+            async function getWeather(){
+                let city = document.getElementById("cityInput").value;
+                let resultBox = document.getElementById("result");
+
+                if(city.trim === "")
+                {
+                    resultBox.innerHTML = "<p class='errorMsg'>Enter a city to get results..</p>";
+                    return;
+                }
+
+                resultBox.innerHTML = "<p> Loading Weather Data...</p>";
+                try{
+                    let geoUrl = "https://geocoding-api.open-meteo.com/v1/search?name="+
+                    city + "&count=1";
+                    let geoResponse = await fetch(geoUrl);
+                    let geoData = await geoResponse.json();
+
+                    if(!geoData.results || geoData.results.length == 0){
+                        resultBox.innerHTML = "<p class='errorMsg'> City Not found!! Please try another City..</p>"
+                        return;
+                    }
+                    let location = geoData.results[0];
+                    let latitude = location.latitude;
+                    let longitude = location.longitude;
+
+                    let weatherURL = "https://geocoding-api.open-meteo.com/v1/forecast?latitude="+
+                    latitude+"&longitude="+longitude+"&current_weather=true";
+
+                    let weatherResponse = await fetch(weatherURL);
+                    let weatherData = await weatherResponse.json();
+
+                    let weather = weatherData.current_weather;
+
+                    resultBox.innerHTML = "<h2> Weather Details</h2>"+
+                    "<p><strong>City: </strong>"+location.name+
+                        "<p>"+"<p><strong>Country: </strong>"+location.country+"</p>"+
+                        "<p><strong>Temperature: </strong>"+weather.temperature+" Celcius </p>"+
+                        "<p><strong>Wind Speed: </strong>"+weather.windspeed+"km/h </p>;"
+                }catch(error)
+                {
+                    resultBox.innerHTML = "<p> Something went wrong! Please try again..</p>";
+                    console.log(error); 
+                }
+            }
+        </script>
+    </body>
+</html>
