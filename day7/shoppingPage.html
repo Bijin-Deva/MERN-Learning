@@ -71,14 +71,11 @@
             border: none;
             outline: none;
         }
-        .card{
-    width:200px;
-    border:1px solid gray;
-    padding:15px;
-    margin:10px;
-    border-radius:8px;
-    display:inline-block;
-}
+        #products{
+            text-align: center;
+            padding: 5px;
+            background-color: beige;
+        }
     </style>
 </head>
 <body>
@@ -97,28 +94,23 @@
             </div>
         </div>
     </div>
+
     <div id="home">
         <h2>Welcome to MyStore</h2>
     </div>
     
     <div id="products" style="display:none;">
-        <h2>Our Products</h2>
-    
-        <div class="card">
-            <h3>Laptop</h3>
-            <p>₹45,000</p>
-        </div>
-    
-        <div class="card">
-            <h3>Mouse</h3>
-            <p>₹500</p>
-        </div>
+        <h1 style="color:blue;padding-top: -10px;">Our Products</h1>
+        <p>Discover amazing products from our collecetion</p>
     </div>
     
     <div id="about" style="display:none;">
         <h2>About Us</h2>
     </div>
-    
+    <footer>
+        <div id="footer1" style="background-color: aquamarine;"><p>This is the first footer section.</p></div>
+        <div id="footer2" style="background-color: red;"><p>This is the second footer section.</p></div>
+    </footer>
     <script>
     function showSection(sectionId) {
     
