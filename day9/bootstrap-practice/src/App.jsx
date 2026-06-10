@@ -10,7 +10,7 @@ function App(){
           </div>
         </div>
       </div>
-
+    <hr/>
     <div>
       <h2>
         Notifications: 
@@ -29,7 +29,7 @@ function App(){
         <span className="badge bg-success">5</span>
       </h2>
     </div>
-
+    <hr/>
     <div>
       <div className="alert alert-success">
         Student Data Saved Successfully
@@ -44,7 +44,7 @@ function App(){
         You have done this
       </div>
     </div>
-
+    <hr/>
     <div className="container">
       <button className=" pd-3 m-3 btn btn-primary btn-sm">Small Button</button>
       <button className="pd-3 m-3 btn btn-primary">Normal Button</button>
@@ -59,7 +59,7 @@ function App(){
       <button className="m-3 btn btn-info">Info</button>
       <button className="m-3 btn btn-dark">Dark</button>
     </div>
-
+    <hr/>
 
     <div>
       <p className="p-3 mb-2 bg-primary text-white">Primary Background</p>
@@ -67,13 +67,13 @@ function App(){
       <p className="p-3 mb-2 bg-danger text-white">Primary Background</p>
       <p className="p-3 mb-2 bg-warning text-white">Primary Background</p>
     </div>
-
+    <hr/>
     <div className="container mt-4">
       <h1 className="display-4">React Bootstrap</h1>
       <p className="lead">This is para with class lead</p>
       <p className="text-muted">This is muted text</p>
     </div>
-
+    <hr/>
 
     <div className="container mt-5">
       <h1 className="text-primary">Bootstrap Container</h1>
