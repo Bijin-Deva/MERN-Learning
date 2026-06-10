@@ -1,6 +1,160 @@
 function App(){
   return(
     <div>
+    <div className="container">
+      <h2>Basix Forms</h2>
+      <form>
+        <div className="mb-3">
+          <label className="form-label">Full Name</label>
+          <input type="text" className="form-control" placeholder="Enter Full Name: " />
+        </div>
+        <div className="mb3">
+          <label className="form-label">Email Name: </label>
+          <input type="email" className="form-control" placeholder="Enter Email" />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Select Course</label>
+          <select className="form-select">
+            <option>Mern</option>
+            <option>JS</option>
+            <option>CSS</option>
+          </select>
+        </div>
+
+        <div className="mb-3">
+          <h4>Skills Known: </h4>
+          <div className="form-check">
+            <input type="checkbox" className="form-check-input" />
+            <label className="form-check-label">HTML</label>
+          </div>
+          <div className="form-check">
+            <input type="checkbox" className="form-check-input" />
+            <label className="form-check-label">CSS</label>
+          </div>
+          <div className="form-check">
+            <input type="checkbox" className="form-check-input" />
+            <label className="form-check-label">JS</label>
+          </div>
+
+          <h3>Select Gender: </h3>
+          <div className="form-check">
+            <input type="radio" className="form-check-input" />
+            <label className="form-check-label" htmlFor="male">Male</label>
+          </div>
+          <div className="form-check">
+            <input type="radio" className="form-check-input" />
+            <label className="form-check-label" htmlFor="male">Female</label>
+          </div>
+        </div>
+        <button className="btn btn-primary btn-sm mt-3">Submit</button>
+        <hr/>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <div className=" card shadow-sm">
+                <div className="card-body">
+                  Card One
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className=" card shadow-sm">
+                <div className="card-body">
+                  Card One
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className=" card shadow-sm">
+                <div className="card-body">
+                  Card One
+                </div>
+              </div>
+            </div>
+          </div>
+           <hr/>
+        </div>
+
+
+
+      <div className="container mt-4">
+        <div className="row">
+          <div className="col-md-6 bg-light p-4">
+            <h3>Left Section</h3>
+            <p>This is the left column</p>
+          </div>
+          <div className="col-md-6 bg-secondary text-white p-4">
+            <h3>Right Section</h3>
+            <p>This is right section</p>
+          </div>
+        </div>
+         <hr/>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div>
       <div className="container mt-4 col-2">
         <div className="card shadow">
           <div className="card-body">
@@ -84,6 +238,7 @@ function App(){
       <p className="text-info">Somelines of text</p>
       <p className="text-dark">Somelines of text</p>
       <h1>Hello</h1>
+    </div>
     </div>
     </div>
   )
