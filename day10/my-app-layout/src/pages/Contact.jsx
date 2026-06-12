@@ -1,0 +1,10 @@
+function Contact(){
+    return(
+        <div>
+            <h2>Contact Us</h2>
+            <p>Reach us at 2345678901</p>
+        </div>
+    )
+}
+
+export default Contact;
